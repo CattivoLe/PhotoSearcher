@@ -16,8 +16,12 @@ class MainTabBarController: UITabBarController {
         view.backgroundColor = .orange
         
         let photosVC = PhotosCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let navigationVC = UINavigationController(rootViewController: photosVC)
         
-        viewControllers = [photosVC, ViewController()]
+        navigationVC.tabBarItem.title = "Photos"
+        navigationVC.tabBarItem.image = #imageLiteral(resourceName: "photos")
+        
+        viewControllers = [navigationVC, ViewController()]
     }
     
     
