@@ -13,6 +13,7 @@
 		EEE0F150230D53ED00C0329B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE0F14F230D53ED00C0329B /* Assets.xcassets */; };
 		EEE0F153230D53ED00C0329B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE0F151230D53ED00C0329B /* LaunchScreen.storyboard */; };
 		EEE0F15B230D54EE00C0329B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F15A230D54EE00C0329B /* MainTabBarController.swift */; };
+		EEE0F15D230D56E200C0329B /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F15C230D56E200C0329B /* PhotosCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EEE0F152230D53ED00C0329B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEE0F154230D53ED00C0329B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEE0F15A230D54EE00C0329B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		EEE0F15C230D56E200C0329B /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				EEE0F148230D53EA00C0329B /* AppDelegate.swift */,
-				EEE0F14A230D53EA00C0329B /* ViewController.swift */,
 				EEE0F15A230D54EE00C0329B /* MainTabBarController.swift */,
+				EEE0F15C230D56E200C0329B /* PhotosCollectionViewController.swift */,
+				EEE0F14A230D53EA00C0329B /* ViewController.swift */,
 				EEE0F14C230D53EA00C0329B /* Main.storyboard */,
 				EEE0F14F230D53ED00C0329B /* Assets.xcassets */,
 				EEE0F151230D53ED00C0329B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				EEE0F14B230D53EA00C0329B /* ViewController.swift in Sources */,
 				EEE0F149230D53EA00C0329B /* AppDelegate.swift in Sources */,
 				EEE0F15B230D54EE00C0329B /* MainTabBarController.swift in Sources */,
+				EEE0F15D230D56E200C0329B /* PhotosCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

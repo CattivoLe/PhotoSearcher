@@ -12,5 +12,13 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super .viewDidLoad()
+        
+        view.backgroundColor = .orange
+        
+        let photosVC = PhotosCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        
+        viewControllers = [photosVC, ViewController()]
     }
+    
+    
 }
