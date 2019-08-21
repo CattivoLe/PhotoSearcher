@@ -16,12 +16,18 @@ class MainTabBarController: UITabBarController {
         view.backgroundColor = .orange
         
         let photosVC = PhotosCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        let navigationVC = UINavigationController(rootViewController: photosVC)
         
-        navigationVC.tabBarItem.title = "Photos"
-        navigationVC.tabBarItem.image = #imageLiteral(resourceName: "photos")
+        viewControllers = [generateNavigationVC(rootVC: photosVC, title: "Photos", image: #imageLiteral(resourceName: "photos")), generateNavigationVC(rootVC: ViewController(), title: "Favourites", image: #imageLiteral(resourceName: "heart"))]
+    }
+    
+    private func generateNavigationVC(rootVC: UIViewController, title: String, image: UIImage) -> UINavigationController {
         
-        viewControllers = [navigationVC, ViewController()]
+        let navigationVC = UINavigationController(rootViewController: rootVC)
+        
+        navigationVC.tabBarItem.title = title
+        navigationVC.tabBarItem.image = image
+        
+        return navigationVC
     }
     
     
