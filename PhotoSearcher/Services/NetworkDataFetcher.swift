@@ -10,9 +10,29 @@ import Foundation
 
 class NetworkDataFetcher {
     
-    //func fetchImages(searchTerm: String, completion) {
+    var networkService = NetworkService()
+    
+    func fetchImages(searchTerm: String, completion: @escaping (SearchResults?) -> ()) {
+        networkService.request(searchTerm: searchTerm) { (data, error) in
+            if let error = error {
+                print("Error - \(error.localizedDescription)")
+                completion(nil)
+            }
+        }
+    }
+    
+    func decodeJSON<T: Decodable> (type: T.Type, from: Data?) -> T? {
+        let decoder = JSONDecoder()
+        guard let data = from else { return nil }
         
-    //}
+        do {
+            let objects = try decoder.decode(type.self, from: data)
+            return objects
+        } catch let jsonError {
+            print("Failed to decode JSON", jsonError)
+            return nil
+        }
+    }
     
     
     
