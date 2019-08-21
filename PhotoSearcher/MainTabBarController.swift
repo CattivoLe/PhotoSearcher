@@ -13,8 +13,6 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super .viewDidLoad()
         
-        view.backgroundColor = .orange
-        
         let photosVC = PhotosCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         
         viewControllers = [generateNavigationVC(rootVC: photosVC, title: "Photos", image: #imageLiteral(resourceName: "photos")), generateNavigationVC(rootVC: ViewController(), title: "Favourites", image: #imageLiteral(resourceName: "heart"))]

@@ -14,6 +14,7 @@
 		EEE0F153230D53ED00C0329B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE0F151230D53ED00C0329B /* LaunchScreen.storyboard */; };
 		EEE0F15B230D54EE00C0329B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F15A230D54EE00C0329B /* MainTabBarController.swift */; };
 		EEE0F15D230D56E200C0329B /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F15C230D56E200C0329B /* PhotosCollectionViewController.swift */; };
+		EEE0F15F230D73A800C0329B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F15E230D73A800C0329B /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EEE0F154230D53ED00C0329B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEE0F15A230D54EE00C0329B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		EEE0F15C230D56E200C0329B /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		EEE0F15E230D73A800C0329B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +64,21 @@
 				EEE0F15A230D54EE00C0329B /* MainTabBarController.swift */,
 				EEE0F15C230D56E200C0329B /* PhotosCollectionViewController.swift */,
 				EEE0F14A230D53EA00C0329B /* ViewController.swift */,
-				EEE0F14C230D53EA00C0329B /* Main.storyboard */,
+				EEE0F160230D7BF000C0329B /* Services */,
 				EEE0F14F230D53ED00C0329B /* Assets.xcassets */,
+				EEE0F14C230D53EA00C0329B /* Main.storyboard */,
 				EEE0F151230D53ED00C0329B /* LaunchScreen.storyboard */,
 				EEE0F154230D53ED00C0329B /* Info.plist */,
 			);
 			path = PhotoSearcher;
+			sourceTree = "<group>";
+		};
+		EEE0F160230D7BF000C0329B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EEE0F15E230D73A800C0329B /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE0F15F230D73A800C0329B /* NetworkService.swift in Sources */,
 				EEE0F14B230D53EA00C0329B /* ViewController.swift in Sources */,
 				EEE0F149230D53EA00C0329B /* AppDelegate.swift in Sources */,
 				EEE0F15B230D54EE00C0329B /* MainTabBarController.swift in Sources */,
