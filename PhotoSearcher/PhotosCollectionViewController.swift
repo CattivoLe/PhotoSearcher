@@ -20,6 +20,10 @@ class PhotosCollectionViewController: UICollectionViewController {
     private let itemsPerRow: CGFloat = 2
     private let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     
+    private var numberOfSelectedPhotos: Int {
+        return collectionView.indexPathsForSelectedItems?.count ?? 0
+    }
+    
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
     }()
@@ -30,9 +34,21 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super .viewDidLoad()
+        updateNavigationButtoneState()
         setupCollectionView()
         setupNavigationBar()
         setupSearchBar()
+    }
+    
+    func refresh() {
+        selectedImages.removeAll()
+        collectionView.selectItem(at: nil, animated: true, scrollPosition: [])
+        updateNavigationButtoneState()
+    }
+    
+    private func updateNavigationButtoneState() {
+        addBarButtonItem.isEnabled = numberOfSelectedPhotos > 0
+        actionBarButtonItem.isEnabled = numberOfSelectedPhotos > 0
     }
     
     //MARK: - Navigation Items Action
@@ -46,7 +62,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         sharedController.completionWithItemsHandler = { _, bool, _, _ in
             if bool {
-                
+                self.refresh()
             }
         }
         
@@ -114,15 +130,18 @@ extension PhotosCollectionViewController: UISearchBarDelegate {
             guard let fetchPhotos = searchResults else { return }
             self?.photos = fetchPhotos.results
             self?.collectionView.reloadData()
+            self?.refresh()
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        updateNavigationButtoneState()
         let cell = collectionView.cellForItem(at: indexPath) as! PhotosCell
         guard let image = cell.photoImageView.image else { return }
             selectedImages.append(image)
     }
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        updateNavigationButtoneState()
         let cell = collectionView.cellForItem(at: indexPath) as! PhotosCell
         guard let image = cell.photoImageView.image else { return }
         if let index = selectedImages.firstIndex(of: image) {
