@@ -10,7 +10,8 @@ import UIKit
 
 class PhotosCollectionViewController: UICollectionViewController {
     
-    let networkService = NetworkService()
+    let networkDataFetcher = NetworkDataFetcher()
+    var text = ""
     
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
@@ -81,9 +82,18 @@ class PhotosCollectionViewController: UICollectionViewController {
     //MARK: - UISearchBar Delegate
 
 extension PhotosCollectionViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
- //       networkService.request(searchTerm: searchText) { (<#Data?#>, <#Error?#>) in
- //           <#code#>
- //       }
+        text = searchText
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.networkDataFetcher.fetchImages(searchTerm: text) { (searchResults) in
+            searchResults?.results.map({ (photo) in
+                print(photo.urls["small"], photo.height)
+            })
+        }
+    }
+    
+    
 }

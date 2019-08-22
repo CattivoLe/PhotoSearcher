@@ -18,6 +18,9 @@ class NetworkDataFetcher {
                 print("Error - \(error.localizedDescription)")
                 completion(nil)
             }
+            
+            let decode = self.decodeJSON(type: SearchResults.self, from: data)
+            completion(decode)
         }
     }
     

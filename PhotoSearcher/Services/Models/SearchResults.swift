@@ -9,10 +9,8 @@
 import Foundation
 
 struct SearchResults: Decodable {
-    
     let total: Int
     let results: [UnsplashPhoto]
-    
 }
 
 struct UnsplashPhoto: Decodable {
