@@ -17,6 +17,7 @@
 		EEE0F15F230D73A800C0329B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F15E230D73A800C0329B /* NetworkService.swift */; };
 		EEE0F162230D81FE00C0329B /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F161230D81FE00C0329B /* NetworkDataFetcher.swift */; };
 		EEE0F164230D82A200C0329B /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F163230D82A200C0329B /* SearchResults.swift */; };
+		EEE0F167230E956800C0329B /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE0F166230E956800C0329B /* PhotosCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		EEE0F15E230D73A800C0329B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EEE0F161230D81FE00C0329B /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		EEE0F163230D82A200C0329B /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		EEE0F166230E956800C0329B /* PhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				EEE0F148230D53EA00C0329B /* AppDelegate.swift */,
 				EEE0F15A230D54EE00C0329B /* MainTabBarController.swift */,
 				EEE0F15C230D56E200C0329B /* PhotosCollectionViewController.swift */,
+				EEE0F166230E956800C0329B /* PhotosCell.swift */,
 				EEE0F14A230D53EA00C0329B /* ViewController.swift */,
 				EEE0F160230D7BF000C0329B /* Services */,
 				EEE0F14F230D53ED00C0329B /* Assets.xcassets */,
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE0F167230E956800C0329B /* PhotosCell.swift in Sources */,
 				EEE0F162230D81FE00C0329B /* NetworkDataFetcher.swift in Sources */,
 				EEE0F15F230D73A800C0329B /* NetworkService.swift in Sources */,
 				EEE0F14B230D53EA00C0329B /* ViewController.swift in Sources */,
