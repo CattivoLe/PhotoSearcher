@@ -22,7 +22,7 @@ class PhotosCell: UICollectionViewCell {
     }
     
     private let checkMark: UIImageView = {
-        let image = UIImage(named: "bird")
+        let image = #imageLiteral(resourceName: "bird")
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.alpha = 0
