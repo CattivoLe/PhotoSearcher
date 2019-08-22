@@ -11,7 +11,10 @@ import UIKit
 class PhotosCollectionViewController: UICollectionViewController {
     
     let networkDataFetcher = NetworkDataFetcher()
+    
     var text = ""
+    
+    private var photos = [UnsplashPhoto]()
     
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
@@ -44,6 +47,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     private func setupCollectionView() {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CellID")
+        collectionView.register(PhotosCell.self, forCellWithReuseIdentifier: PhotosCell.reuseId)
     }
     
     private func setupNavigationBar() {
@@ -68,12 +72,13 @@ class PhotosCollectionViewController: UICollectionViewController {
     //MARK: - UICollectionViewDataSource, Delegate
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return photos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellID", for: indexPath)
-        cell.backgroundColor = .blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCell.reuseId, for: indexPath) as! PhotosCell
+        let unsplashPhoto = photos[indexPath.item]
+        cell.unsplashPhoto = unsplashPhoto
         return cell
     }
     
@@ -88,10 +93,10 @@ extension PhotosCollectionViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.networkDataFetcher.fetchImages(searchTerm: text) { (searchResults) in
-            searchResults?.results.map({ (photo) in
-                print(photo.urls["small"], photo.height)
-            })
+        self.networkDataFetcher.fetchImages(searchTerm: text) { [weak self] (searchResults) in
+            guard let fetchPhotos = searchResults else { return }
+            self?.photos = fetchPhotos.results
+            self?.collectionView.reloadData()
         }
     }
     
