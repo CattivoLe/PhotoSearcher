@@ -24,10 +24,6 @@ class PhotosCollectionViewController: UICollectionViewController {
         return collectionView.indexPathsForSelectedItems?.count ?? 0
     }
     
-    private lazy var addBarButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
-    }()
-    
     private lazy var actionBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(actionBarButtonTapped))
     }()
@@ -47,15 +43,10 @@ class PhotosCollectionViewController: UICollectionViewController {
     }
     
     private func updateNavigationButtoneState() {
-        addBarButtonItem.isEnabled = numberOfSelectedPhotos > 0
         actionBarButtonItem.isEnabled = numberOfSelectedPhotos > 0
     }
     
     //MARK: - Navigation Items Action
-    
-    @objc private func addBarButtonTapped(){
-        print(#function)
-    }
     
     @objc private func actionBarButtonTapped(sender: UIBarButtonItem) {
         let sharedController = UIActivityViewController(activityItems: selectedImages, applicationActivities: nil)
@@ -80,17 +71,17 @@ class PhotosCollectionViewController: UICollectionViewController {
         collectionView.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.contentInsetAdjustmentBehavior = .automatic
         collectionView.allowsMultipleSelection = true
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
     private func setupNavigationBar() {
         let titleLable = UILabel()
-        titleLable.text = "PHOTOS"
+        titleLable.text = "PHOTO SEARCHER"
         titleLable.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         titleLable.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLable)
-        navigationItem.rightBarButtonItems = [actionBarButtonItem, addBarButtonItem]
+        navigationItem.rightBarButtonItems = [actionBarButtonItem]
     }
     
     private func setupSearchBar() {
